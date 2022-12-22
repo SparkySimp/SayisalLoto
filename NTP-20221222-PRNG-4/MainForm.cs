@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -106,9 +106,14 @@ namespace NTP_20221222_PRNG_4
                 List<int> ballIndices = new List<int>();
                 for (int i = 0; i < 6; i++)
                 {
-                    int index = currListBox.Items.IndexOf(balls[i]);
-                    if (index > -1)
-                        ballIndices.Add(index);
+                    List<int> indices = new List<int>();
+                    for (int j = 0; j < currListBox.Items.Count; j++)
+                    {
+                        if((int)currListBox.Items[i] == balls[i])
+                            indices.Add(j);
+                    }
+                    if (indices.Count > 0)
+                        ballIndices.AddRange(indices);
                 }
                 ballIndices.TrimExcess();
                 currListBox.SelectedIndices.Clear();
