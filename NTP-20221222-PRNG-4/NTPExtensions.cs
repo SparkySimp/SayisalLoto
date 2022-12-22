@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -42,12 +42,19 @@ namespace NTP_20221222_PRNG_4
         /// <typeparam name="T">Type of the elements in the array.</typeparam>
         /// <param name="self">The array to join.</param>
         /// <param name="seperator">The seperator between values.</param>
-        /// <returns></returns>
+        /// <returns>Single-line <see cref="string"/> representation of the array.</returns>
         public static string ToLineString<T>(this IEnumerable<T> self, string seperator)
         {
             string[] strings = self.Select(i => i.ToString()).ToArray();
 
             return string.Join(seperator, strings);
         }
+
+        /// <summary>
+        /// Returns to the previous iteration of a loop.
+        /// </summary>
+        /// <param name="i">Loop counter variable.</param>
+        /// <returns>Previous value of the number.</returns>
+        public static int ReturnToPreviousIteration(ref int i) => i--;
     }
 }
