@@ -1,4 +1,4 @@
-﻿
+
 namespace NTP_20221222_PRNG_4
 {
     partial class MainForm
